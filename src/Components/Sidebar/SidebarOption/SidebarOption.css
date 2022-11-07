@@ -1,0 +1,12 @@
+.container__option{
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    height: 40px;
+    color: var(--spotify-grey);
+    transition: .2s color ease-in;
+}
+.container__option:hover {
+    color: #fff;
+}

@@ -1,0 +1,17 @@
+.container__sidebar{
+    min-width: 230px;
+    height: 100vh;
+    background-color: #000;
+    color: var(--spotify-grey);
+    flex: 0.2;
+    padding: 0 22px;
+    display: flex;
+    flex-direction: column;
+}
+
+.container__sidebar>img{
+    width: 53%;
+    margin-top: 28px;
+    object-fit: contain;
+    margin-bottom: 15px;
+}

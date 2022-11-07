@@ -1,0 +1,74 @@
+.container__footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%; /*97%;*/
+    height: 90px;
+    background-color: var(--spotify-black-bar);
+    color: var(--spotify-grey);
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer__left{
+    flex: .2;
+    display: flex;
+    align-items: center;
+}
+
+.img__song{
+    height: 80%;
+    object-fit: contain;
+    padding: 0 10px;
+}
+
+.info__song{
+    color: #fff;
+    padding-left: 5px;
+}
+
+.footer__center{
+    flex: .6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    fill: var(--spotify-grey);
+    max-width: 300px;
+}
+
+.button-play{
+    color: #fff;
+}
+
+.footer__rigth{
+    flex: .2;
+    display: flex;
+    align-items: center;
+    fill: var(--spotify-grey);
+}
+
+.footer__buttons{
+    width: 32px !important;
+    height: 32px !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer__buttons>svg{
+    width: 16px !important;
+    height: 16px !important;
+}
+
+.button-play{
+    width: 40px !important;
+    height: 40px !important;
+}
+
+.footer__buttons:hover{
+    cursor: pointer;
+    color: #fff;
+    fill: #fff;
+    transition: transform .2s ease-in;
+    transform: scale(1.2);
+}
