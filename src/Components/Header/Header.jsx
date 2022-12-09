@@ -27,7 +27,7 @@ const Header = () => {
                     sx={{ width: 28, height: 28 }}
                 />
                 <h4>{user?.display_name}</h4>
-                <svg role="img" height="16" width="16" class="Svg-ytk21e-0 jAKAlG eAXFT6yvz37fvS1lmt6k" aria-hidden="true" viewBox="0 0 16 16"><path d="M14 6l-6 6-6-6h12z"></path></svg>
+                <svg role="img" height="16" width="16" className="Svg-ytk21e-0 jAKAlG eAXFT6yvz37fvS1lmt6k" aria-hidden="true" viewBox="0 0 16 16"><path d="M14 6l-6 6-6-6h12z"></path></svg>
             </div>
         </div>
     )

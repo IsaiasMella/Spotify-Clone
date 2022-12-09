@@ -18,10 +18,9 @@ const Sidebar = () => {
       <SidebarOption Icon={LibraryMusicIcon} title={'Tu biblioteca'} />
       <hr />
       {
-        playlists?.items?.map(playlists => (
-          <SidebarOption title={playlists.name} />
-        )
-        )
+        playlists?.items?.map((playlists, index) => (
+          <SidebarOption key={index} title={playlists.name} />
+        ))
       }
     </div>
   )

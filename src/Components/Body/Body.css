@@ -1,5 +1,5 @@
 .container__body {
-    background: linear-gradient(135deg, #212121 5%, 30%, var(--spotify-black-bar) 90%);
+    background: linear-gradient(135deg, var(--black-1) 5%, 30%, var(--spotify-black-bar) 90%);
     width: 100%;
     flex: 0.8;
     color: #fff;

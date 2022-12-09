@@ -5,11 +5,13 @@ import SpotifyWebApi from 'spotify-web-api-js';
 import { useEffect } from 'react';
 import { getTokenFromUrl } from './Spotify/Spotify';
 import { useUserDataValue } from './Context/UserData';
+import { listOfPlaylists } from './Spotify/listOfPlaylists'
 
 const spotify = new SpotifyWebApi()
 
 function App() {
   const [{ user, token }, dispatch] = useUserDataValue()
+
   useEffect(() => {
     const hash = getTokenFromUrl()
     window.location.hash = ''
@@ -26,42 +28,55 @@ function App() {
 
       spotify.getMe()
         .then(user => {
-          console.log(user)
           dispatch({
             type: 'SET_USER',
             user: user
           })
         })
 
-      spotify.getUserPlaylists().then((playlists) => {
-        dispatch({
-          type: "SET_PLAYLISTS",
-          playlists,
+      spotify.getUserPlaylists()
+        .then((playlists) => {
+          dispatch({
+            type: "SET_PLAYLISTS",
+            playlists,
+          });
         });
-      });
-//   7DVJRsfJG7Ao5T3sv8LCec
-      spotify.getPlaylist("7DVJRsfJG7Ao5T3sv8LCec").then((response) =>
-      dispatch(
-          {
-          type: "SET_DISCOVER_WEEKLY",
-          discover_weekly: response,
+
+      listOfPlaylists.weekly_daily.forEach(
+        playlist => {
+          spotify.getPlaylist(playlist)
+            .then(response => {
+              console.log(response)
+              dispatch({
+                type: "SET_DISCOVER_WEEKLY",
+                discover_weekly: response,
+              })
+            }
+            );
         })
-      );
 
-      spotify.getCategories()
-      .then((recently) =>
-      dispatch(
+
+      // spotify.getAvailableGenreSeeds()//"0JQ5DAnM3wGh0gz1MXnu89")
+      spotify.getMyRecentlyPlayedTracks()//"0JQ5DAnM3wGh0gz1MXnu89")
+        .then(recently => {
+          console.log('recently')
+          console.log(recently.items)
+
+          dispatch(
           {
-          type: "SET_RECENTLY_PLAYED_TRACK",
-          recently_played_tracks: recently,
-        })
-      );
+            type: "SET_RECENTLY_PLAYED_TRACK",
+            recently_played_tracks: recently.items,
+          })
+        }
+        );
 
 
-// aca cierra, hacer cosas antes
+      // aca cierra, hacer cosas antes
     }
+    console.log(spotify)
   }, []);
-  console.log(spotify)
+
+
   return (
     <div className="App">
       {token ? <Player spotify={spotify} /> : <Login />}

@@ -1,0 +1,30 @@
+.container__card{
+    min-height: 250px ;
+    max-height: 312px ;
+    min-width: 157px;
+    max-width: 220px;
+    padding: 16px;   
+    border-radius: 8px ;
+    cursor: pointer;
+}
+
+.container__card:hover{
+    background-color: hsla(0, 0%, 100%, 0.1) ;
+    transition: background-color .2s ease-in-out;
+}
+
+.container__card>img{
+    width: 100%;
+    object-fit: cover;
+    margin-bottom: 16px;
+    border-radius: 4px;
+}
+
+.card__text{
+   line-height: 1.6;
+}
+
+.card__description{
+    color: var(--grey);
+    font-size: .8125rem;
+}

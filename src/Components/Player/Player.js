@@ -1,4 +1,5 @@
 import React from 'react'
+import { Route, Routes } from 'react-router-dom'
 import Body from '../Body/Body'
 import Footer from '../Footer/Footer'
 import Sidebar from '../Sidebar/Sidebar'
@@ -9,7 +10,9 @@ const Player = ({ spotify }) => {
         <div className='player'>
             <div className='main'>
                 <Sidebar />
-                <Body spotify={spotify} />
+                <Routes>
+                    <Route path='/' element={<Body spotify={spotify} />} />
+                </Routes>
             </div>
             <Footer />
         </div>
